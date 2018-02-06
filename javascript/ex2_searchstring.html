@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		body{
+			text-align: center;
+		}
+	</style>
+<script type="text/javascript">
+	function search(){
+
+		
+    	var Texter =document.getElementById("TextInput").value;
+
+    	var TheSerach = document.getElementById("text").value;
+
+ 
+    	console.log(Texter);
+        var radios = document.getElementsByName('Sen');
+			for (var i = 0;i<radios.length; i++) {
+			    if (radios[i].checked) {
+					var status = radios[i].value;
+			    }
+			}
+
+    	var str = new Array(); 
+    	str = Texter.split(" ");
+    	var count = 0; 
+    	if(status=='Yes'){
+    	for(var i=0;i<str.length;i++) { 
+    		if(TheSerach == str[i]){
+    		count++; 
+  		  		}
+			}		
+		}else{
+		for(var i=0;i<str.length;i++) { 
+    		if(TheSerach.toUpperCase() == str[i].toUpperCase()){
+    		
+    		count++; 
+  		  		}
+			}		
+		}
+
+    	document.getElementById("Answer").innerHTML = count;
+    	//alert(count);
+
+		//alert(TheSerach);
+
+
+
+
+	}
+
+</script>
+
+</head>
+<body>
+	<h1>Ex - Search String Non Sensitive Case</h1>
+	<hr>
+	<div>
+		<label>Text Input : </label>
+		<textarea id="TextInput"></textarea>
+	</div>
+	<dir>
+		<label>Sensitive Case : </label>
+		<label class="radio-inline">
+	      <input type="radio" name="Sen" checked="true" value="Yes"> Yes
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="Sen" value="No">No
+	    </label>
+	</div>
+	<br><br>
+	<div>
+		<label>Search : </label>
+		<input type="text" name="text" id="text">
+	</div>
+	<br>
+	<div>
+		<button onclick="search()">search</button>
+	</div>
+	<p>Result for Search : <span id="Answer"></span></p>
+</body>
+</html>
